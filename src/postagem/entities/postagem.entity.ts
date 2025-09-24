@@ -2,13 +2,13 @@ import { IsNotEmpty } from 'class-validator';
 import {
   Column,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Tema } from '../../tema/entities/tema.etity';
 
-// Entidade se refere à classe. Então Postagem.entity, é a classe, aqui estamos definindo a classe Postagem. Preciso entender apenas se
-// virá aqui os métodos e depois serão executados pela controller.
-// A entidade é quem define as tabelas no banco de dados, então a entidade Postagem, define a tabela postagem lá no bd.
+// Entidade somente para modelar meu banco de dados !!!
 
 @Entity({ name: 'tb_postagens' })
 export class Postagem {
@@ -25,4 +25,9 @@ export class Postagem {
 
   @UpdateDateColumn()
   data: Date;
+
+  @ManyToOne(() => Tema, (tema) => tema.postagem, {
+    onDelete: 'CASCADE',
+  })
+  tema: Tema;
 }
