@@ -1,6 +1,6 @@
 import { TemaController } from './controllers/tema.controller';
 import { TemaService } from './services/tema.service';
-import { Tema } from './entities/tema.etity';
+import { Tema } from './entities/tema.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
